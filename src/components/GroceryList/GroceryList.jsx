@@ -6,7 +6,12 @@ return(
    
     <>
         <h1>Shopping List</h1>
+        <button id="reset">Reset</button>
+        <button id="clear">Clear</button>
+        <br></br>
+        <br></br>
         {groceryArray.map((grocery) =>(
+            
         <div class = "block">
             <p>{grocery.name}</p>
             <p>{grocery.quantity}{grocery.unit}</p>
@@ -14,12 +19,11 @@ return(
             {grocery.purchase ? 
             <p>Purchased</p>:
             <div> 
-                <button data-buyid={grocery.id}>Buy</button>
-                <button data-removeid={grocery.id}>Remove</button>
+                <button id="buy">Buy</button>
+                <button id="remove" onClick={() => deleteItem(grocery.id)}>Remove</button>
             </div>
             }
-            <button id="buy">Buy</button>
-            <button id="remove" onClick= {() => deleteItem(grocery.id)}>Remove</button>
+        
 
         </div>
              ))}
