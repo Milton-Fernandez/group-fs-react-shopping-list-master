@@ -3,8 +3,8 @@ import './Header.css';
 
 function Header() {
     return (
-        <header className="banner-header">
-            <h1>My Shopping List</h1>
+        <header className="jumbotron"  >
+            <h1>Our Shopping List</h1>
         </header>
     );
 }
