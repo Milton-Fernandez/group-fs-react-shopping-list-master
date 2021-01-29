@@ -23,6 +23,34 @@ function App() {
 
     //DELETE request
     const deleteItem = (itemId) => {
+        Swal.fire({
+            title: 'Are you sure you want to delete this item?',
+            text: "this change cannot be undone ",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete this item!'
+          })
+        then((result) => {
+              // if the Yes, delete this item! button is clicked run axios.delete
+            if (result.isConfirmed) {
+                // axios delete request on click of Yes, delete this item!
+                axios.delete(`/shopping/${id}`).then(response => {
+                    console.log(`in removeItem with item id: `, id);
+                    fetchItems();
+                }).catch(error => {
+                    console.log(error);
+                })
+                // alert for successful delete
+              Swal.fire(
+                'Deleted!',
+                'Your item has been deleted.',
+                'success'
+              )
+            }
+          })
+        }
 
         axios({
             method: 'DELETE',
