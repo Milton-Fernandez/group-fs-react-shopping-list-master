@@ -9,11 +9,10 @@ return(
         <button id="reset" class="btn btn-warning" onClick = {() => resetShoppingCart()}>Reset</button>
         <button id="clear" class="btn btn-danger" onClick= {() => deleteShoppingHistory()}>Clear</button>
         </div>
-
+        <div class="row">
         <br />
         {groceryArray.map((grocery) =>(
-            
-            <div key={grocery.id} className={grocery.purchased ? "card text-white bg-success mb-3 d-flex justify-content-center" : "card text-dark bg-light mb-3 d-flex justify-content-center" }>
+            <div key={grocery.id} className={grocery.purchased ? "card text-white bg-success mb-3 d-flex justify-content-center col-md-4" : "card text-dark bg-light mb-3 d-flex justify-content-center col-md-4" }>
             <p >{grocery.name}</p>
             <p>{grocery.quantity} - {grocery.unit}</p>
             {grocery.purchased ? 
@@ -29,7 +28,7 @@ return(
             }     
         </div>
         
-             ))}
+             ))}</div>
     </>)}
 
 export default GroceryList;
